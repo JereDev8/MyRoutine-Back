@@ -25,7 +25,9 @@ server.use('/', routeUsers)
 server.use('/', routeTasks)
 server.use('/', routeDroppables) 
 
-
+server.get('/', (req, res)=>{
+  res.send('Checkpoint funcionando!')
+})
 
 
 server.listen(3000, ()=>console.log('Server on http://localhost:3000'))
