@@ -7,7 +7,7 @@ const route = Router()
 route.get('/users/:uid/tasks', async (req, res)=>{
     const { uid } = req.params;
 
-    const [rows] = await pool.query(`SELECT tasks FROM Users WHERE uid = '${uid}';`);
+    const [rows] = await pool.query(`SELECT tasks FROM users WHERE uid = '${uid}';`);
     
     console.log('checkpoint de tasks: ', rows )
     if(rows[0]) res.send(rows[0].tasks)
@@ -28,7 +28,7 @@ route.put('/users/:uid/tasks', async (req, res)=>{
         task:tarea
     })
 
-    const tasksUpdated = await pool.query(`UPDATE Users SET tasks = '${JSON.stringify(copyTasks)}' WHERE uid = '${uid}'`)
+    const tasksUpdated = await pool.query(`UPDATE users SET tasks = '${JSON.stringify(copyTasks)}' WHERE uid = '${uid}'`)
 
     res.send(tasksUpdated)  
 

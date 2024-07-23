@@ -16,7 +16,7 @@ route.post('/users/:uid/droppables', async (req, res)=>{
     const { uid } = req.params
     const { drops, drags } = req.body;
     
-    const updateUser = await pool.query(`UPDATE Users
+    const updateUser = await pool.query(`UPDATE users
         SET tasks = '${JSON.stringify(drags)}', droppables = '${JSON.stringify(drops)}'
         WHERE uid = '${uid}';
     `);

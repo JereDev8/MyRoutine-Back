@@ -15,7 +15,7 @@ route.get('/users', async (req, res)=>{
 route.post('/users', async (req, res)=>{ 
     console.log('LLega la peticion')
     const {uid, displayName, email, photoURL } = req.body;
-    const createUser = await pool.query(`INSERT INTO Users (username, email, tasks, droppables, uid, photoURL) 
+    const createUser = await pool.query(`INSERT INTO users (username, email, tasks, droppables, uid, photoURL) 
       VALUES("${displayName}", "${email}", "${JSON.stringify([])}", '${JSON.stringify([
         {
           id: 1,
