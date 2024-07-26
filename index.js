@@ -4,20 +4,15 @@ import cors from 'cors'
 import routeUsers from './routes/users.js';
 import routeTasks from './routes/tasks.js'
 import routeDroppables from './routes/droppables.js'
-
 import dotenv from 'dotenv'
-import {Sequelize} from 'sequelize'
-import User from './models/User.js';
-
-
-
+ 
 dotenv.config()
 
 
 const server = express();
 
 server.use(cors({
-    origin: 'https://my-routine-two.vercel.app', 
+    origin: 'http://localhost:5173', 
   }))
 server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
